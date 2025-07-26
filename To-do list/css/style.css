@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../images/bg-todo.jpeg");
+    background-attachment: fixed;
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container{
+    width: 65vh;
+    height: 450px;
+    background-color: rgba(0, 0, 0, 0.166);
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    margin:100px auto;
+    overflow: auto;	
+}
+
+.todo-app {
+    padding: 40px 10px;
+}
+
+#todo-input {
+    box-shadow: none;
+}
+
