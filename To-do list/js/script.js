@@ -3,7 +3,6 @@ let addBtn = document.querySelector("#addBtn");
 let list = document.querySelector("#todo-list");
 // localStorage.clear();
 addBtn.addEventListener("click", function () {
-
     let newTask = inputTask.value;
 
     if (newTask === "") return; //prevent input empty tasks
@@ -34,11 +33,25 @@ function displayTasks() {
         }
 
     let taskList = "";
-    for (let task of arrTasks) {
-        taskList += `<li>${task}</li>`;
+    for (let i=0; i<arrTasks.length ; i++) {
+        taskList += `
+            <li id="listItem" class="d-flex justify-content-between align-items-center mb-2 p-2 border rounded" style="width: 100%;">
+                <span class="text-truncate" style="max-width: 85%;">${arrTasks[i]}</span>
+                <button class="btn btn-danger btn-sm delBtn" data-index="${i}">Delete</button>
+            </li>`;
     }
 
     list.innerHTML = taskList;
-}
 
+    let delBtns = document.querySelectorAll(".delBtn");
+    for (let delTask of delBtns){
+        delTask.addEventListener("click", function(e){
+            let taskIndex = e.target.getAttribute("data-index");
+            arrTasks.splice(taskIndex,1);
+            localStorage.setItem("Tasks",JSON.stringify(arrTasks));
+            displayTasks();
+
+        });
+    }
+}
 
